@@ -18,6 +18,7 @@ RUN python3 -m venv /venv
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY ./files/ /app/
+COPY ./files/main.py /app/main.py
 
 RUN mkdir -p /app/db /var/log
 
