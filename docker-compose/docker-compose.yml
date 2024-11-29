@@ -72,7 +72,7 @@ services:
     volumes:
       - free2fa_db:/opt/db
       - free2fa_api_certs:/app/certs
-      - free2fa_ca_certs:/usr/local/share/ca-certificates/
+#      - free2fa_ca_certs:/usr/local/share/ca-certificates/
      build:
       context: free2fa_api
       dockerfile: Dockerfile
