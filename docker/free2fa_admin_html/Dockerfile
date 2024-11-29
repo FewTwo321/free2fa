@@ -3,7 +3,7 @@ FROM nginx
 WORKDIR /app
 
 RUN apt-get update \
-    && apt-get install nano -y \
+    && apt-get install -y nano \
     && apt-get install -y --no-install-recommends apache2-utils \
     && apt-get clean \
     && update-ca-certificates \
