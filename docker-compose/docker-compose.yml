@@ -9,6 +9,9 @@ services:
       - free2fa_admin_api_certs:/certs/free2fa_admin_api
       - free2fa_admin_html_certs:/certs/free2fa_admin_html
       - free2fa_api_certs:/certs/free2fa_api
+    build:
+      context: free2fa_setup
+      dockerfile: Dockerfile
     environment:
       - CA_EXPIRY_DAYS=${CA_EXPIRY_DAYS}
       - ADDITIONAL_DNS_NAME_FOR_ADMIN_HTML=${ADDITIONAL_DNS_NAME_FOR_ADMIN_HTML}
@@ -26,6 +29,9 @@ services:
     volumes:
       - free2fa_admin_html_certs:/etc/nginx/certs
       - free2fa_ca_certs:/usr/local/share/ca-certificates/
+    build:
+      context: free2fa_admin_html
+      dockerfile: Dockerfile
     networks:
        - free2fa_admin_network
     depends_on:
@@ -43,6 +49,9 @@ services:
     volumes:
       - free2fa_db:/opt/db
       - free2fa_admin_api_certs:/app/certs
+    build:
+      context: free2fa_admin_api
+      dockerfile: Dockerfile
     networks:
       - free2fa_admin_network
       - free2fa_ca_network
@@ -64,6 +73,9 @@ services:
       - free2fa_db:/opt/db
       - free2fa_api_certs:/app/certs
       - free2fa_ca_certs:/usr/local/share/ca-certificates/
+     build:
+      context: free2fa_api
+      dockerfile: Dockerfile
     networks:
       - free2fa_network
     depends_on:
