@@ -15,8 +15,8 @@ admin_api_version="latest"
 setup_version="latest"
 
 # Assemble and upload API
-docker build -t clllagob/free2fa:api_$api_version ./free2fa_api
-docker push clllagob/free2fa:api_$api_version
+docker build -t fewtwo321/free2fa:api_$api_version ./free2fa_api
+docker push fewtwo321/free2fa:api_$api_version
 
 # Assemble and upload Admin HTML
 docker build -t fewtwo321/free2fa:admin_html_$admin_html_version ./free2fa_admin_html
