@@ -374,7 +374,7 @@ async def process_auth_response(callback_query: types.CallbackQuery):
         logger.exception("Error in process_auth_response: %s", error)
 
 
-async def clear_auth_request(domain_and_username, delay=1):
+async def clear_auth_request(domain_and_username, delay=3600):
     """Clearing the authorization of the request."""
     await asyncio.sleep(delay)
     if domain_and_username in auth_requests:
